@@ -12,6 +12,29 @@
             margin-left: 5vw; /* 5% of the viewport width */
             margin-right: 5vw; /* 5% of the viewport width */
         }
+        .title-section {
+        display: flex;
+        align-items: center; /* Aligns items vertically in the center */
+        justify-content: space-between; /* Spreads the content to use the available space */
+        margin-bottom: 20px; /* Adds some space below the title section */
+        }
+
+        .info {
+        flex: 3; /* Gives the info section more space */
+        }
+
+        .profile-pic {
+        flex: 1; /* Gives the profile picture section less space */
+        display: flex;
+        justify-content: center; /* Centers the profile picture in its container */
+        }
+
+        .profile-pic img {
+        max-width: 100%; /* Ensures the image is fully contained within its div */
+        height: auto; /* Maintains aspect ratio */
+        border-radius: 50%; /* Optional: Rounds the profile picture */
+        }
+
         .profile {
             text-align: center;
             padding: 20px;
@@ -62,13 +85,15 @@
 </head>
 <body>
 
-<div class="profile">
-    <img src="path-to-your-profile-picture.jpg" alt="Your Name">
-    <h1>Farhad Pourkamali Anaraki</h1>
-    <h3>Assistant Professor</h3>
-    <h3>Department of Mathematical and Statistical Sciences</h3>
-    <h3>Director of Mathematics, Information, and Data Science (MINDS) Lab</h3>
-    <h3>University of Colorado Denver</h3>
+<div class="title-section">
+    <div class="info">
+        <h1>Your Name</h1>
+        <p>Assistant Professor</p>
+         <!-- Any other information you want to include -->
+    </div>
+    <div class="profile-pic">
+        <img src="path-to-your-profile-picture.jpg" alt="Your Name">
+    </div>
 </div>
 
 <!-- Table of Contents -->
