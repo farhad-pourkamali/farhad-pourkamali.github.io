@@ -69,13 +69,15 @@
         margin-bottom: 5px; /* Adds space between list items */
         }
 
-        .table-of-contents a {
-        color: #007bff; /* Link color */
-        text-decoration: none; /* Removes underline */
+        .table-of-contents ul {
+        list-style-type: none; /* Remove default list bullets */
+        margin: 0;
+        padding: 0;
         }
 
-        .table-of-contents a:hover {
-        text-decoration: underline; /* Adds underline on hover */
+        .table-of-contents li {
+        display: inline-block; /* Display list items in a line */
+        margin-right: 20px; /* Add some space between the items */
         }
 
         .my-link {
