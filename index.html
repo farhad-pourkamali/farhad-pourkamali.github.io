@@ -1,289 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farhad Pourkamali</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            margin-left: 10vw; /* 10% of the viewport width */
-            margin-right: 10vw; /* 10% of the viewport width */
-            line-height: 1.4; /* Adjust the value as needed */
-        }
-        .title-section {
-        margin-top: 20px; /* Increase the top margin as needed */
-        display: flex;
-        align-items: center; /* Aligns items vertically in the center */
-        justify-content: space-between; /* Spreads the content to use the available space */
-        margin-bottom: 10px; /* Adds some space below the title section */
-        margin-left: 10vw; /* 5% of the viewport width */
-        margin-right: 10vw; /* 5% of the viewport width */
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farhad Pourkamali</title>
+  <style>
+    :root{
+      /* Deep blue theme */
+      --bg1:#001020; --bg2:#003366; --bg3:#001a33;
+      --text:#f5f5f5; --muted:#cfd8dc; --accent:#66ccff; --card:rgba(255,255,255,.05);
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text);
+      background: radial-gradient(1000px 500px at 10% -10%, rgba(102,204,255,.12), transparent 60%),
+                  radial-gradient(800px 400px at 110% 10%, rgba(102,140,255,.1), transparent 60%),
+                  linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
+      background-attachment: fixed;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        .title-section h2, .title-section h4, .title-section p {
-        line-height: 1; /* Adjust line height to reduce space between lines */
-        }
+    /* Background layers */
+    #particles{position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.6}
+    .grid-bg:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;mix-blend-mode:overlay; z-index:1;
+      background-image:linear-gradient(transparent 31px, rgba(255,255,255,.06) 32px),linear-gradient(90deg, transparent 31px, rgba(255,255,255,.06) 32px);
+      background-size:32px 32px, 32px 32px; animation: drift 30s linear infinite;}
+    @keyframes drift{from{transform:translateY(0)} to{transform:translateY(32px)}}
 
-        .info {
-        flex: 1; /* Gives the info section more space */
-        }
+    /* Header / Hero */
+    header{position:sticky; top:0; z-index:5; backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.15)); border-bottom: 1px solid rgba(255,255,255,.08);}
+    .wrap{max-width:1100px;margin:0 auto;padding:16px 20px}
+    .hero{display:flex;gap:24px;align-items:center;justify-content:space-between;padding:24px 20px 8px}
+    .hero h1{font-size: clamp(28px, 5vw, 44px); margin:0 0 6px}
+    .hero h3{margin:0;color:var(--muted);font-weight:500}
+    .hero .meta{color:var(--muted)}
+    .avatar{flex:0 0 auto;display:grid;place-items:center}
+    .avatar img{width:160px;height:160px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow: var(--shadow)}
 
-        .profile-pic {
-        flex: 1; /* Gives the profile picture section less space */
-        display: flex;
-        justify-content: center; /* Centers the profile picture in its container */
-        }
+    nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding:8px 0 18px}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;
+          background:rgba(255,255,255,.08); text-decoration:none; color:var(--text); transition:.2s transform,.2s background}
+    .chip:hover{transform:translateY(-2px); background:var(--accent); color:#041014}
 
-        .profile-pic img {
-        max-width: 40%; /* Ensures the image is fully contained within its div */
-        height: auto; /* Maintains aspect ratio */
-        }
+    /* Sections */
+    .container{position:relative; z-index:2; max-width:1100px;margin:20px auto;padding:0 20px 60px}
+    section{background:var(--card);border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:22px 22px; margin:0 auto 22px; box-shadow: var(--shadow)}
+    section h2{margin:0 0 10px; color:var(--accent)}
+    a{color:var(--accent)}
 
-        
-        .section {
-            padding: 20px;
-            border-bottom: 1px solid #ccc;
-        }
-        .section:last-child {
-            border-bottom: none;
-        }
-        h2 {
-            color: #333;
-        }
-        
-        .table-of-contents {
-        margin: 20px auto;
-        padding: 20px;
-        margin-bottom: 0;
-        }
+    /* Buttons */
+    .buttons{display:flex;flex-wrap:wrap;gap:10px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.15);
+         text-decoration:none;color:var(--text);background:rgba(255,255,255,.04);transition:.2s transform,.2s background,.2s box-shadow}
+    .btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.12); box-shadow:0 8px 22px rgba(0,0,0,.35)}
 
-        .table-of-contents h2 {
-        text-align: center;
-        }
+    /* Publications grid */
+    .pub-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .pub-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:16px;box-shadow:var(--shadow);
+              transition:transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease; cursor:pointer}
+    .pub-card:hover{transform:translateY(-6px) scale(1.02); box-shadow:0 14px 40px rgba(0,0,0,.45); background:rgba(255,255,255,.06)}
+    .pub-card h3{margin:0 0 8px;font-size:1.05rem}
+    .pub-card p{margin:0 0 12px;font-size:0.95rem}
 
-        .table-of-contents li {
-        margin-bottom: 5px; /* Adds space between list items */
-        }
+    /* Footer */
+    footer{padding:28px 20px;color:var(--muted);text-align:center}
 
-        .table-of-contents ul {
-        list-style-type: none; /* Remove default list bullets */
-        margin: 0;
-        padding: 0;
-        }
-
-        .table-of-contents li {
-        display: inline-block; /* Display list items in a line */
-        margin-right: 20px; /* Add some space between the items */
-        }
-
-        .table-of-contents a {
-        color: #007bff; /* Link color */
-        text-decoration: none; /* Removes underline */
-        }
-
-
-        .my-link {
-            color: #7a2eb9; /* Changes the text color */
-            text-decoration: none; /* Removes the underline */
-        }
-    </style>
+    /* Responsive */
+    @media (max-width: 880px){
+      .hero{flex-direction:column;text-align:center}
+      .avatar img{width:140px;height:140px}
+    }
+    @media (max-width: 780px){.pub-grid{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
+  <!-- Background layers -->
+  <canvas id="particles"></canvas>
+  <div class="grid-bg"></div>
 
-<div class="title-section">
-    <div class="info">
-        <h2>Farhad Pourkamali Anaraki</h2>
-        <h4>Assistant Professor, Department of Mathematical and Statistical Sciences</h4>
-        <h4>Director of Mathematics, Information, and Data Science (MINDS) Lab</h4>
-        <h4>University of Colorado Denver</h4>
-        <h4>Research Areas: Machine Learning, Deep Learning, and Data Science</h4>
-        <p>Email: <a href="mailto:farhad.pourkamali@ucdenver.edu">farhad.pourkamali@ucdenver.edu</a></p>
-         <!-- Any other information you want to include -->
+  <!-- Header -->
+  <header>
+    <div class="wrap hero">
+      <div>
+        <h1>Farhad Pourkamali Anaraki</h1>
+        <h3>Assistant Professor, Department of Mathematical & Statistical Sciences</h3>
+        <div class="meta">Director of Mathematics, Information, and Data Science (MINDS) Lab · University of Colorado Denver</div>
+        <div class="buttons" style="margin-top:12px">
+          <a class="btn" href="mailto:farhad.pourkamali@ucdenver.edu">📧 Email</a>
+          <a class="btn" href="#teaching">🎓 Courses</a>
+          <a class="btn" href="https://scholar.google.com/citations?user=NB2B59cAAAAJ&hl=en" target="_blank" rel="noopener">🔎 Google Scholar</a>
+          <a class="btn" href="https://github.com/farhad-pourkamali" target="_blank" rel="noopener">🧪 GitHub</a>
+        </div>
+      </div>
+      <div class="avatar"><img src="https://raw.githubusercontent.com/farhad-pourkamali/farhad-pourkamali.github.io/main/farhadProfile.jpeg" alt="Farhad portrait"/></div>
     </div>
-    <div class="profile-pic">
-        <img src="https://raw.githubusercontent.com/farhad-pourkamali/farhad-pourkamali.github.io/main/farhadProfile.jpeg" alt="Farhad">
-    </div>
-</div>
+    <nav class="wrap">
+      <a class="chip" href="#bio">Biography</a>
+      <a class="chip" href="#research">Research</a>
+      <a class="chip" href="#news">News</a>
+      <a class="chip" href="#publications">Publications</a>
+      <a class="chip" href="#grants">Grants</a>
+      <a class="chip" href="#teaching">Teaching</a>
+      <a class="chip" href="#lab">Lab</a>
+    </nav>
+  </header>
 
-<!-- Table of Contents -->
-<div class="table-of-contents">
-    <ul>
-        <li><a href="#biography">Biography</a></li>
-        <li><a href="#research-interests">Research Interests</a></li>
-        <li><a href="#recent-publications">Selected Publications</a></li>
-        <li><a href="#grants">Grants</a></li>
-        <li><a href="#teaching">Teaching</a></li>
-        <li><a href="#lab">Lab Members</a></li>
-    </ul>
-</div>
+  <!-- Main -->
+  <main class="container">
+    <section id="bio">
+      <h2>Biography</h2>
+      <p>Farhad Pourkamali is currently a tenure-track Assistant Professor in the <a href="https://clas.ucdenver.edu/mathematical-and-statistical-sciences/">Department of Mathematical and Statistical Sciences</a> at the University of Colorado Denver (CU Denver). He earned his Ph.D. in Electrical Engineering from the University of Colorado Boulder (CU Boulder), where he subsequently completed a one-year postdoctoral fellowship in the Department of Applied Mathematics. Prior to his current role, he served as an Assistant Professor in the Computer Science Department at the University of Massachusetts Lowell (UMass Lowell) from 2018 to 2022. In 2021, he received the Visiting Faculty Research Program (VFRP) award from the Air Force Research Laboratory Information Directorate (AFRL/RI). Since the fall of 2022, he has been a part of CU Denver, where he leads the Mathematics, Information, and Data Science (MINDS) Lab. His main emphasis is on advancing machine learning techniques to reduce the necessity for human input, enhance their computational and statistical efficiency, and create accessible cyberinfrastructure resources. He is committed to addressing practical problems in various domains, including materials science and natural hazards analysis, and is actively seeking opportunities for collaboration.</p>
+    </section>
 
-<div class="section" id="biography">
-    <h2>Biography</h2>
-    <p>Farhad Pourkamali is currently a tenure-track Assistant Professor
-         in the <a href="https://clas.ucdenver.edu/mathematical-and-statistical-sciences/" class="my-link">Department of Mathematical and Statistical Sciences</a> at
-          the University of Colorado Denver (CU Denver). He earned his Ph.D. in Electrical
-           Engineering from the University of Colorado Boulder (CU Boulder), where he subsequently
-            completed a one-year postdoctoral fellowship in the Department of Applied 
-            Mathematics. Prior to his current role, he served as an Assistant Professor
-             in the Computer Science Department at the University of Massachusetts 
-             Lowell (UMass Lowell) from 2018 to 2022. In 2021, he received the Visiting Faculty Research Program (VFRP) award
-              from the Air Force Research Laboratory Information Directorate (AFRL/RI). Since the fall of 2022, he has been a part 
-             of CU Denver, where he leads the Mathematics, Information, and Data Science
-              (MINDS) Lab. His main emphasis is on advancing machine learning techniques to 
-              reduce the necessity for human input, enhance their computational and statistical efficiency,
-               and create accessible cyberinfrastructure resources. He is committed to addressing practical problems
-                in various domains, including materials science and natural hazards analysis, and is actively seeking 
-                opportunities for collaboration.
-    </p>
-</div>
+    <section id="research">
+      <h2>Research Interests</h2>
+      <p>The objective of my research is to develop efficient machine learning methods that can address a diverse array of real-world challenges across various domains. My work is multifaceted, encompassing the critical aspects of data, modeling, computational efficiency, and evaluation.</p>
+      <ul>
+        <li><strong>Data:</strong> Data is the foundational fuel for machine learning models, particularly for complex deep learning architectures. This aspect of my research explores optimal data size and acquisition strategies to minimize resource consumption while maximizing model performance. Additionally, I focus on leveraging unsupervised data through generative modeling techniques to enhance learning from unlabeled data.</li>
+        <li><strong>Modeling:</strong> Developing effective machine learning models requires careful consideration of assumptions and architecture tailored to specific applications. My research investigates optimal model design, including architectures for handling multi-modal inputs, to ensure robust and adaptable solutions for diverse use cases.</li>
+        <li><strong>Computational Efficiency:</strong> With the growing computational demands of training machine learning and deep learning models, particularly in time-sensitive and edge computing applications, my research prioritizes reducing resource costs. This includes exploring model compression techniques and other strategies to improve training and inference efficiency.</li>
+        <li><strong>Evaluation:</strong> Reliable machine learning models must provide actionable insights into their predictions' uncertainty. My research focuses on uncertainty-aware techniques, such as probabilistic neural networks, Bayesian models, and conformal prediction, to deliver more trustworthy and interpretable outcomes.</li>
+      </ul>
+    </section>
 
-<div class="section" id="research-interests">
-    <h2>Research Interests</h2>
-    <p>The objective of my research is to develop efficient machine learning methods that can address a
-        diverse array of real-world challenges across various domains. My work is multifaceted, encompassing the critical aspects of data, modeling,
-         computational efficiency, and evaluation. Below is a detailed breakdown of these key areas:
-     </p> 
-     <ul>
-        <li>
-            <strong>Data:</strong> Data is the foundational fuel for 
-            machine learning models, particularly for complex deep learning architectures. 
-            This aspect of my research explores optimal data size and acquisition strategies 
-            to minimize resource consumption while maximizing model performance.
-             Additionally, I focus on leveraging unsupervised data through generative modeling techniques to
-              enhance learning from unlabeled data.
+    <section id="news">
+      <h2>News</h2>
+      <ul>
+        <li>TBD</li>
+      </ul>
+    </section>
+
+    <section id="publications">
+      <h2>Selected Publications</h2>
+      <p>The complete collection of my publications can be found on <a href="https://scholar.google.com/citations?user=NB2B59cAAAAJ&hl=en">Google Scholar</a>.</p>
+      <div class="pub-grid">
+        <div class="pub-card">
+          <h3><a href="https://www.sciencedirect.com/science/article/abs/pii/S0952197623011673" target="_blank" rel="noopener">Evaluation of Classification Models in Limited Data Scenarios with Application to Additive Manufacturing</a></h3>
+          <p>Framework for unbiased test loss estimates with fewer labels in sparse-data regimes, reducing variance via adaptive sampling distribution.</p>
+          <div class="buttons"><a class="btn" href="https://www.sciencedirect.com/science/article/abs/pii/S0952197623011673" target="_blank" rel="noopener">Read Article</a></div>
+        </div>
+        <div class="pub-card">
+          <h3><a href="https://arxiv.org/abs/2401.02008" target="_blank" rel="noopener">Two-Stage Surrogate Modeling for Data-Driven Design Optimization with Application to Composite Microstructure Generation</a></h3>
+          <p>Two-stage inverse design framework combining candidate narrowing with conformal inference filtering, validated on benchmarks and micromechanics case study.</p>
+          <div class="buttons"><a class="btn" href="https://arxiv.org/abs/2401.02008" target="_blank" rel="noopener">Read Preprint</a></div>
+        </div>
+        <div class="pub-card">
+          <h3><a href="#" target="_blank" rel="noopener">Add another featured paper</a></h3>
+          <p>Use this slot to feature a recent publication. Link to DOI/arXiv or your site.</p>
+          <div class="buttons"><a class="btn" href="https://scholar.google.com/citations?user=NB2B59cAAAAJ&hl=en" target="_blank" rel="noopener">More on Scholar</a></div>
+        </div>
+        <div class="pub-card">
+          <h3><a href="#" target="_blank" rel="noopener">Add a fourth featured paper</a></h3>
+          <p>Brief 1–2 sentence highlight of contribution and results.</p>
+          <div class="buttons"><a class="btn" href="https://scholar.google.com/citations?user=NB2B59cAAAAJ&hl=en" target="_blank" rel="noopener">All Publications</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="grants">
+      <h2>Grants</h2>
+      <ul>
+        <li>High-Throughput Design and Analysis of Novel Ceramics
+          <ul><li>Funding Agency: Army Research Lab (ARL)</li></ul>
         </li>
-        <li>
-            <strong>Modeling:</strong> Developing effective machine 
-            learning models requires careful consideration of assumptions
-             and architecture tailored to specific applications. My research investigates optimal 
-             model design, including architectures for handling multi-modal inputs, to ensure robust and adaptable 
-             solutions for diverse use cases.
+        <li>Data Science Approaches to Advance High Solids Loading Additive Manufacturing
+          <ul><li>Funding Agency: Army Research Lab (ARL)</li></ul>
         </li>
-        <li>
-            <strong>Computational Efficiency:</strong> With the growing 
-            computational demands of training machine learning and deep 
-            learning models, particularly in time-sensitive and edge computing applications, my research prioritizes 
-            reducing resource costs. This includes exploring model compression techniques and other strategies to improve 
-            training and inference efficiency.
+        <li>Multi-Scale Models based on Machine Learning and a Fiber Network Model
+          <ul><li>Funding Agency: National Aeronautics and Space Administration (NASA)</li></ul>
         </li>
-        <li>
-            <strong>Evaluation:</strong> Reliable machine learning models
-             must provide actionable insights into their
-              predictions' uncertainty. My research 
-              focuses on uncertainty-aware techniques, such as probabilistic 
-              neural networks, Bayesian models, and conformal prediction, to deliver more trustworthy and interpretable outcomes.
+        <li>Learning from Imbalanced Data with Confidence and Minimal Supervision
+          <ul><li>Funding Agency: Air Force Research Laboratory Information Directorate (AFRL/RI)</li></ul>
         </li>
-    </ul>
-</div>
+      </ul>
+    </section>
 
-
-<div class="section" id="recent-publications">
-    <h2>Selected Publications</h2>
-    <p>The complete collection of my publications can be found on <a href="https://scholar.google.com/citations?user=NB2B59cAAAAJ&hl=en" class="my-link">Google Scholar</a>.</p> 
-    <ul>
-        <li><a href="https://www.sciencedirect.com/science/article/abs/pii/S0952197623011673" class="my-link">Evaluation of Classification Models in Limited Data Scenarios with Application to Additive Manufacturing</a></li>
-        <ul> 
-            <li> This paper presents a novel framework that enables the generation of unbiased estimates for test loss using fewer labeled samples,
-                 effectively evaluating the predictive performance of classification models in data-limited applications. The framework's key innovation
-                  lies in developing an adaptive sampling distribution that iteratively identifies 
-                  influential testing samples based on interactions between learner and evaluator agents.
-                   Notably, the adaptive distribution dynamically adjusts the evaluator agent's 
-                   supervisory role by prioritizing inputs with discrepancies between the agents
-                    and considering the evaluator's uncertainty. Comprehensive experimental
-                     analyses on synthetic data and two sparse data sets from material extrusion
-                      additive manufacturing problems validate the framework's superiority over 
-                      uniform and fixed sampling distributions. First, the proposed framework
-                       provides unbiased estimates of the test loss across various data sets,
-                        sampling ratios, and evaluator models. Second, the introduced adaptive 
-                        sampling distribution significantly reduces the standard deviation of the 
-                        test loss estimator compared to uniform sampling, achieving a 50% reduction
-                         for a 10% sampling ratio in the filament selection benchmark. Third, 
-                         the framework demonstrates its efficacy in model selection to determine 
-                         the optimal number of hidden units with a reduced number of test samples. 
-                         Overall, this work offers a promising framework for evaluating classification
-                          models in applications where acquiring labeled data is time-consuming and
-                           resource-intensive, including materials science and engineering.
-            </li>
-        </ul> 
-        <li><a href="https://arxiv.org/abs/2401.02008" class="my-link">Two-Stage Surrogate Modeling for Data-Driven Design Optimization with Application to Composite Microstructure Generation</a></li>
-        <ul>
-            <li> This paper introduces a novel two-stage machine learning-based surrogate modeling 
-                framework to address inverse problems in scientific and engineering fields. In the first stage of the proposed framework,
-                 a machine learning model termed the "learner" identifies a limited set of candidates within the input design 
-                 space whose predicted outputs closely align with desired outcomes. Subsequently, in the second stage, 
-                 a separate surrogate model, functioning as an "evaluator," is employed to assess the
-                  reduced candidate space generated in the first stage. This evaluation process eliminates inaccurate 
-                  and uncertain solutions, guided by a user-defined coverage level. The framework's distinctive 
-                  contribution is the integration of conformal inference, providing a versatile and efficient 
-                  approach that can be widely applicable. To demonstrate the effectiveness of the proposed framework
-                   compared to conventional single-stage inverse problems, we conduct several benchmark tests and investigate an
-                    engineering application focused on the micromechanical modeling of fiber-reinforced composites. The results
-                     affirm the superiority of our proposed framework, as it consistently produces more reliable solutions.
-                      Therefore, the introduced framework offers a unique perspective on fostering interactions between machine
-                    learning-based surrogate models in real-world applications.
-            </li>
-         </ul>
-        <!-- Add more publications as needed -->
-    </ul>
-</div>
-
-<div class="section" id="grants">
-    <h2>Grants</h2>
-    <ul>
-        <li>High-Throughput Design and Analysis of Novel Ceramics</li>
-        <ul>
-            <li>Funding Agency: Army Research Lab (ARL)</li>
-        </ul>
-        <li>Data Science Approaches to Advance High Solids Loading Additive Manufacturing</li>
-        <ul>
-            <li>Funding Agency: Army Research Lab (ARL)</li>
-        </ul>
-        <li>Multi-Scale Models based on Machine Learning and a Fiber Network Model</li>
-        <ul>
-            <li>Funding Agency: National Aeronautics and Space Administration (NASA)</li>
-        </ul>
-        <li>Learning from Imbalanced Data with Confidence and Minimal Supervision</li>
-        <ul>
-            <li>Funding Agency: Air Force Research Laboratory Information Directorate (AFRL/RI)</li>
-        </ul>
-    </ul>
-</div>
-
-<div class="section" id="teaching">
-    <h2>Teaching</h2>
-    <ul>
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <ul>
         <li>MATH 6388 Statistical and Machine Learning, Fall 2022 and Fall 2023
-            <ul>
-                <li><a href="https://github.com/farhad-pourkamali/MATH6388" class="my-link">https://github.com/farhad-pourkamali/MATH6388</a></li>
-            </ul>
+          <ul>
+            <li><a href="https://github.com/farhad-pourkamali/MATH6388">https://github.com/farhad-pourkamali/MATH6388</a></li>
+          </ul>
         </li>
-        <li>MATH 4/5388 Machine Learning Methods, Spring 2023 
-            <ul>
-                <li><a href="https://github.com/farhad-pourkamali/Machine-Learning-Methods" class="my-link">https://github.com/farhad-pourkamali/Machine-Learning-Methods</a></li>
-            </ul>
+        <li>MATH 4/5388 Machine Learning Methods, Spring 2023
+          <ul>
+            <li><a href="https://github.com/farhad-pourkamali/Machine-Learning-Methods">https://github.com/farhad-pourkamali/Machine-Learning-Methods</a></li>
+          </ul>
         </li>
         <li>MATH 1376: Programming for Data Science, Spring 2024
-            <ul>
-                <li><a href="https://github.com/farhad-pourkamali/ProgrammingForDataScience" class="my-link">https://github.com/farhad-pourkamali/ProgrammingForDataScience</a></li>
-            </ul>
+          <ul>
+            <li><a href="https://github.com/farhad-pourkamali/ProgrammingForDataScience">https://github.com/farhad-pourkamali/ProgrammingForDataScience</a></li>
+          </ul>
         </li>
-    </ul>
-</div>
+      </ul>
+    </section>
 
-<div class="section" id="lab">
-    <h2>Lab Members</h2>
-    <ul>
-        <li>Matthew Knodell (Applied Math PhD Student, 2024-present)</li>
-        <li>Courtney Franzen (Applied Math PhD Student, 2024-present)</li>
-        <li>Rachel Drummond (Applied Math PhD Student, 2023-present)</li>
-        <li>Colin Furey (Applied Math PhD Student, 2023-present)</li>
-        <!-- Add more publications as needed -->
-    </ul>
-</div>
+    <section id="lab">
+      <h2>Lab Members</h2>
+      <ul>
+        <li>Matthew Knodell (Applied Math PhD Student, 2024–present)</li>
+        <li>Courtney Franzen (Applied Math PhD Student, 2024–present)</li>
+        <li>Rachel Drummond (Applied Math PhD Student, 2023–present)</li>
+        <li>Colin Furey (Applied Math PhD Student, 2023–present)</li>
+      </ul>
+    </section>
+  </main>
 
+  <footer id="contact">© <script>document.write(new Date().getFullYear())</script> Farhad Pourkamali · <a href="mailto:farhad.pourkamali@ucdenver.edu">farhad.pourkamali@ucdenver.edu</a></footer>
 
+  <!-- Particles script (inline, no external files needed) -->
+  <script>
+    (function(){
+      const canvas = document.getElementById('particles');
+      if(!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w, h, particles = [], dpr = Math.min(window.devicePixelRatio || 1, 2);
+      function resize(){
+        w = canvas.width = Math.floor(innerWidth * dpr);
+        h = canvas.height = Math.floor(innerHeight * dpr);
+        canvas.style.width = innerWidth + 'px';
+        canvas.style.height = innerHeight + 'px';
+        const targetCount = Math.min(240, Math.floor(innerWidth * innerHeight * 0.00006));
+        if(particles.length > targetCount){ particles.length = targetCount; }
+        while(particles.length < targetCount){ particles.push(makeParticle()); }
+      }
+      function makeParticle(){
+        return { x: Math.random()*w, y: Math.random()*h, vx: (Math.random()-0.5)*0.25*dpr, vy: (Math.random()-0.5)*0.25*dpr, r: (Math.random()*1.5 + 0.6) * dpr };
+      }
+      function step(){
+        ctx.clearRect(0,0,w,h);
+        // draw links
+        for(let i=0;i<particles.length;i++){
+          const p = particles[i];
+          for(let j=i+1;j<particles.length;j++){
+            const q = particles[j];
+            const dx = p.x - q.x, dy = p.y - q.y;
+            const dist2 = dx*dx + dy*dy;
+            const maxDist = 140*dpr;
+            if(dist2 < maxDist*maxDist){
+              const alpha = 0.08 * (1 - Math.sqrt(dist2)/maxDist);
+              ctx.strokeStyle = `rgba(102,204,255, ${alpha})`;
+              ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+            }
+          }
+        }
+        // draw particles
+        for(const p of particles){
+          p.x += p.vx; p.y += p.vy;
+          if(p.x < 0 || p.x > w) p.vx *= -1;
+          if(p.y < 0 || p.y > h) p.vy *= -1;
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.65)'; ctx.fill();
+        }
+        requestAnimationFrame(step);
+      }
+      addEventListener('resize', resize); resize(); step();
+    })();
+  </script>
 </body>
 </html>
