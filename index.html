@@ -90,11 +90,13 @@
         <h1>Farhad Pourkamali Anaraki</h1>
         <h3>Assistant Professor, Department of Mathematical & Statistical Sciences</h3>
         <div class="meta">Director of Mathematics, Information, and Data Science (MINDS) Lab · University of Colorado Denver</div>
+        <div class="meta">📧 <a href="mailto:farhad.pourkamali@ucdenver.edu">farhad.pourkamali@ucdenver.edu</a></div>
+        
         <div class="buttons" style="margin-top:12px">
-          <a class="btn" href="mailto:farhad.pourkamali@ucdenver.edu">📧 Email</a>
-          <a class="btn" href="#teaching">🎓 Courses</a>
           <a class="btn" href="https://scholar.google.com/citations?user=NB2B59cAAAAJ&hl=en" target="_blank" rel="noopener">🔎 Google Scholar</a>
           <a class="btn" href="https://github.com/farhad-pourkamali" target="_blank" rel="noopener">🧪 GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/farhad-pourkamali/" target="_blank" rel="noopener">🔗 LinkedIn</a>
+          <a class="btn" href="https://www.youtube.com/c/drdatascience" target="_blank" rel="noopener">▶️ YouTube</a>
         </div>
       </div>
       <div class="avatar"><img src="https://raw.githubusercontent.com/farhad-pourkamali/farhad-pourkamali.github.io/main/farhadProfile.jpeg" alt="Farhad portrait"/></div>
@@ -102,8 +104,7 @@
     <nav class="wrap">
       <a class="chip" href="#bio">Biography</a>
       <a class="chip" href="#research">Research</a>
-      <a class="chip" href="#news">News</a>
-      <a class="chip" href="#publications">Publications</a>
+<a class="chip" href="#publications">Publications</a>
       <a class="chip" href="#grants">Grants</a>
       <a class="chip" href="#teaching">Teaching</a>
       <a class="chip" href="#lab">Lab</a>
@@ -119,21 +120,29 @@
 
     <section id="research">
       <h2>Research Interests</h2>
-      <p>The objective of my research is to develop efficient machine learning methods that can address a diverse array of real-world challenges across various domains. My work is multifaceted, encompassing the critical aspects of data, modeling, computational efficiency, and evaluation.</p>
-      <ul>
-        <li><strong>Data:</strong> Data is the foundational fuel for machine learning models, particularly for complex deep learning architectures. This aspect of my research explores optimal data size and acquisition strategies to minimize resource consumption while maximizing model performance. Additionally, I focus on leveraging unsupervised data through generative modeling techniques to enhance learning from unlabeled data.</li>
-        <li><strong>Modeling:</strong> Developing effective machine learning models requires careful consideration of assumptions and architecture tailored to specific applications. My research investigates optimal model design, including architectures for handling multi-modal inputs, to ensure robust and adaptable solutions for diverse use cases.</li>
-        <li><strong>Computational Efficiency:</strong> With the growing computational demands of training machine learning and deep learning models, particularly in time-sensitive and edge computing applications, my research prioritizes reducing resource costs. This includes exploring model compression techniques and other strategies to improve training and inference efficiency.</li>
-        <li><strong>Evaluation:</strong> Reliable machine learning models must provide actionable insights into their predictions' uncertainty. My research focuses on uncertainty-aware techniques, such as probabilistic neural networks, Bayesian models, and conformal prediction, to deliver more trustworthy and interpretable outcomes.</li>
-      </ul>
-    </section>
+      <p>The objective of my research is to advance the foundations and computational methods for building intelligent systems that can operate with minimal human supervision while understanding and quantifying their own uncertainty. By improving computational and data efficiency, developing novel approaches for calibrating and adapting pre-trained models, and applying these methods across domains from computer vision to scientific simulations, my work aims to create AI systems that are both high-performing and trustworthy. These AI models have been deployed in domains ranging from multiscale composite material modeling and additive manufacturing to remote sensing for environmental and geospatial applications.</p>
 
-    <section id="news">
-      <h2>News</h2>
-      <ul>
-        <li>TBD</li>
-      </ul>
-    </section>
+      <div class="pub-grid">
+        <div class="pub-card">
+          <h3>Probabilistic Neural Networks</h3>
+          <p>These models are designed to provide direct estimates about the variability in neural network outputs. For example, in regression settings, the model produces a parameterized predictive distribution, which can be used for uncertainty quantification. This is important because it enables more informed decision-making by explicitly modeling predictive confidence.</p>
+        </div>
+        <div class="pub-card">
+          <h3>Model Calibration</h3>
+          <p>I work on adapting calibration methods, such as temperature scaling and conformal prediction, to pre-trained vision and language models affected by domain shifts. Well-calibrated models produce reliable uncertainty estimates, which are critical for safe and trustworthy AI in high-stakes applications.</p>
+        </div>
+        <div class="pub-card">
+          <h3>Multimodal Representation and Fusion</h3>
+          <p>In many applications, data comes from multiple modalities such as text, images, and sensor measurements. Merging these in a probabilistic framework allows for consistent uncertainty estimates across modalities, leading to more robust and coherent predictions.</p>
+        </div>
+        <div class="pub-card">
+          <h3>Model Reproducibility and Explainability</h3>
+          <p>Training neural networks is inherently stochastic, leading to variability in results. Quantifying this training-induced variability is critical for scientific rigor. In addition, explainability methods help interpret model predictions, ensuring transparency and accountability.</p>
+        </div>
+      </div>
+</section>
+
+    
 
     <section id="publications">
       <h2>Selected Publications</h2>
@@ -164,51 +173,89 @@
 
     <section id="grants">
       <h2>Grants</h2>
-      <ul>
-        <li>High-Throughput Design and Analysis of Novel Ceramics
-          <ul><li>Funding Agency: Army Research Lab (ARL)</li></ul>
-        </li>
-        <li>Data Science Approaches to Advance High Solids Loading Additive Manufacturing
-          <ul><li>Funding Agency: Army Research Lab (ARL)</li></ul>
-        </li>
-        <li>Multi-Scale Models based on Machine Learning and a Fiber Network Model
-          <ul><li>Funding Agency: National Aeronautics and Space Administration (NASA)</li></ul>
-        </li>
-        <li>Learning from Imbalanced Data with Confidence and Minimal Supervision
-          <ul><li>Funding Agency: Air Force Research Laboratory Information Directorate (AFRL/RI)</li></ul>
-        </li>
-      </ul>
+
+      <div class="pub-grid">
+        <div class="pub-card">
+          <h3>High-Throughput Design and Analysis of Novel Ceramics</h3>
+          <p><strong>Funding Agency:</strong> Army Research Lab (ARL)</p>
+        </div>
+        <div class="pub-card">
+          <h3>Data Science Approaches to Advance High Solids Loading Additive Manufacturing</h3>
+          <p><strong>Funding Agency:</strong> Army Research Lab (ARL)</p>
+        </div>
+        <div class="pub-card">
+          <h3>Multi-Scale Models based on Machine Learning and a Fiber Network Model</h3>
+          <p><strong>Funding Agency:</strong> National Aeronautics and Space Administration (NASA)</p>
+        </div>
+        <div class="pub-card">
+          <h3>Learning from Imbalanced Data with Confidence and Minimal Supervision</h3>
+          <p><strong>Funding Agency:</strong> Air Force Research Laboratory Information Directorate (AFRL/RI)</p>
+        </div>
+      </div>
     </section>
 
     <section id="teaching">
       <h2>Teaching</h2>
-      <ul>
-        <li>MATH 6388 Statistical and Machine Learning, Fall 2022 and Fall 2023
-          <ul>
-            <li><a href="https://github.com/farhad-pourkamali/MATH6388">https://github.com/farhad-pourkamali/MATH6388</a></li>
-          </ul>
-        </li>
-        <li>MATH 4/5388 Machine Learning Methods, Spring 2023
-          <ul>
-            <li><a href="https://github.com/farhad-pourkamali/Machine-Learning-Methods">https://github.com/farhad-pourkamali/Machine-Learning-Methods</a></li>
-          </ul>
-        </li>
-        <li>MATH 1376: Programming for Data Science, Spring 2024
-          <ul>
-            <li><a href="https://github.com/farhad-pourkamali/ProgrammingForDataScience">https://github.com/farhad-pourkamali/ProgrammingForDataScience</a></li>
-          </ul>
-        </li>
-      </ul>
+
+      <div class="pub-grid">
+<div class="pub-card">
+          <h3>MATH 6388: Statistical and Machine Learning</h3>
+          <p>Offered: Fall 2022, Fall 2023, Fall 2024</p>
+          <div class="buttons">
+            <a class="btn" href="https://github.com/farhad-pourkamali/MATH6388Online" target="_blank" rel="noopener">Course Repo</a>
+          </div>
+        </div>
+        <div class="pub-card">
+          <h3>MATH 4/5388: Machine Learning Methods</h3>
+          <p>Offered: Spring 2023 and Spring 2025</p>
+          <div class="buttons">
+            <a class="btn" href="https://www.pourkamali.com/MLMethods/intro.html" target="_blank" rel="noopener">Course Repo</a>
+          </div>
+        </div>
+        <div class="pub-card">
+          <h3>MATH 1376: Programming for Data Science</h3>
+          <p>Offered: Spring 2024</p>
+          <div class="buttons">
+            <a class="btn" href="https://github.com/farhad-pourkamali/ProgrammingForDataScience" target="_blank" rel="noopener">Course Repo</a>
+          </div>
+        </div>
+        <div class="pub-card">
+          <h3>MATH 5718: Applied Linear Algebra</h3>
+          <p>Offered: Fall 2025</p>
+        </div>
+        <div class="pub-card">
+          <h3>MATH 3382: Statistical Theory</h3>
+          <p>Offered: Spring 2025</p>
+        </div>
+        <div class="pub-card">
+          <h3>Next Course</h3>
+          <p>Coming soon...</p>
+        </div>
+    
+</div>
     </section>
 
     <section id="lab">
       <h2>Lab Members</h2>
-      <ul>
-        <li>Matthew Knodell (Applied Math PhD Student, 2024–present)</li>
-        <li>Courtney Franzen (Applied Math PhD Student, 2024–present)</li>
-        <li>Rachel Drummond (Applied Math PhD Student, 2023–present)</li>
-        <li>Colin Furey (Applied Math PhD Student, 2023–present)</li>
-      </ul>
+
+      <div class="pub-grid">
+        <div class="pub-card">
+          <h3>Matthew Knodell</h3>
+          <p>Applied Math Ph.D. Student (2024–present)</p>
+        </div>
+        <div class="pub-card">
+          <h3>Courtney Franzen</h3>
+          <p>Applied Math Ph.D. Student (2024–present)</p>
+        </div>
+        <div class="pub-card">
+          <h3>Rachel Drummond</h3>
+          <p>Applied Math Ph.D. Student (2023–present)</p>
+        </div>
+        <div class="pub-card">
+          <h3>Colin Furey</h3>
+          <p>Applied Math Ph.D. Student (2023–present)</p>
+        </div>
+      </div>
     </section>
   </main>
 
