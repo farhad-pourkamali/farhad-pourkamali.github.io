@@ -6,69 +6,114 @@
   <title>Farhad Pourkamali</title>
   <style>
     :root{
-      /* Deep blue theme */
-      --bg1:#001020; --bg2:#003366; --bg3:#001a33;
-      --text:#f5f5f5; --muted:#cfd8dc; --accent:#66ccff; --card:rgba(255,255,255,.05);
-      --shadow:0 10px 30px rgba(0,0,0,.35);
+      /* Clean Academic Light Theme */
+      --bg1:#f8fafc; --bg2:#f1f5f9; --bg3:#e2e8f0;
+      --text:#0f172a; --muted:#475569; --accent:#1d4ed8; --accent-hover:#1e40af; --card:#ffffff;
+      --shadow:0 4px 20px rgba(15,23,42,.05), 0 1px 3px rgba(15,23,42,.02);
     }
     *{box-sizing:border-box}
     html,body{margin:0;height:100%}
     body{
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       color:var(--text);
-      background: radial-gradient(1000px 500px at 10% -10%, rgba(102,204,255,.12), transparent 60%),
-                  radial-gradient(800px 400px at 110% 10%, rgba(102,140,255,.1), transparent 60%),
-                  linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
+      background: radial-gradient(1000px 500px at 10% -10%, rgba(29,78,216,.04), transparent 70%),
+                  linear-gradient(135deg, var(--bg1), var(--bg2));
       background-attachment: fixed;
       line-height: 1.6;
       overflow-x: hidden;
     }
 
     /* Background layers */
-    #particles{position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.6}
-    .grid-bg:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.08;mix-blend-mode:overlay; z-index:1;
-      background-image:linear-gradient(transparent 31px, rgba(255,255,255,.06) 32px),linear-gradient(90deg, transparent 31px, rgba(255,255,255,.06) 32px);
+    .grid-bg:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.6;mix-blend-mode:multiply; z-index:1;
+      background-image:linear-gradient(transparent 31px, rgba(15,23,42,.02) 32px),linear-gradient(90deg, transparent 31px, rgba(15,23,42,.02) 32px);
       background-size:32px 32px, 32px 32px; animation: drift 30s linear infinite;}
     @keyframes drift{from{transform:translateY(0)} to{transform:translateY(32px)}}
 
     /* Header / Hero */
-    header{position:sticky; top:0; z-index:5; backdrop-filter: blur(10px);
-      background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.15)); border-bottom: 1px solid rgba(255,255,255,.08);}
+    header{z-index:5; background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(248,250,252,.85)); border-bottom: 1px solid rgba(15,23,42,.06); backdrop-filter: blur(8px);}
     .wrap{max-width:1100px;margin:0 auto;padding:16px 20px}
     .hero{display:flex;gap:24px;align-items:center;justify-content:space-between;padding:24px 20px 8px}
-    .hero h1{font-size: clamp(28px, 5vw, 44px); margin:0 0 6px}
-    .hero h3{margin:0;color:var(--muted);font-weight:500}
-    .hero .meta{color:var(--muted)}
+    .hero h1{font-size: clamp(28px, 5vw, 44px); margin:0 0 6px; color:#0f172a;}
+    .hero h3{margin:0;color:var(--muted);font-weight:600}
+    .hero .meta{color:var(--muted); font-size: 0.95rem;}
     .avatar{flex:0 0 auto;display:grid;place-items:center}
-    .avatar img{width:160px;height:160px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow: var(--shadow)}
+    .avatar img{width:160px;height:160px;border-radius:50%;object-fit:cover;border:4px solid #ffffff;box-shadow: 0 10px 25px rgba(15,23,42,.12)}
 
     nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding:8px 0 18px}
-    .chip{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;
-          background:rgba(255,255,255,.08); text-decoration:none; color:var(--text); transition:.2s transform,.2s background}
-    .chip:hover{transform:translateY(-2px); background:var(--accent); color:#041014}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px; font-size:0.95rem; font-weight:500;
+          background:rgba(15,23,42,.04); text-decoration:none; color:var(--muted); transition:.2s transform,.2s background,.2s color}
+    .chip:hover{transform:translateY(-1px); background:var(--accent); color:#ffffff}
 
     /* Sections */
     .container{position:relative; z-index:2; max-width:1100px;margin:20px auto;padding:0 20px 60px}
-    section{background:var(--card);border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:22px 22px; margin:0 auto 22px; box-shadow: var(--shadow)}
-    section h2{margin:0 0 10px; color:var(--accent)}
-    a{color:var(--accent)}
+    section{background:var(--card);border:1px solid rgba(15,23,42,.06); border-radius:16px; padding:24px 24px; margin:0 auto 24px; box-shadow: var(--shadow)}
+    section h2{margin:0 0 12px; color:var(--text); font-weight:700; border-bottom: 2px solid var(--bg3); padding-bottom: 6px; display: inline-block;}
+    a{color:var(--accent); text-decoration: none; font-weight: 500;}
+    a:hover{text-decoration: underline; color: var(--accent-hover);}
 
     /* Buttons */
     .buttons{display:flex;flex-wrap:wrap;gap:10px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.15);
-         text-decoration:none;color:var(--text);background:rgba(255,255,255,.04);transition:.2s transform,.2s background,.2s box-shadow}
-    .btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.12); box-shadow:0 8px 22px rgba(0,0,0,.35)}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:8px;border:1px solid rgba(15,23,42,.08); font-size: 0.9rem; font-weight: 500;
+         text-decoration:none;color:var(--text);background:rgba(15,23,42,.02);transition:.2s transform,.2s background,.2s box-shadow}
+    .btn:hover{transform:translateY(-1px);background:rgba(15,23,42,.06); box-shadow:0 4px 12px rgba(15,23,42,.05); text-decoration: none;}
 
-    /* Publications grid */
-    .pub-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .pub-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:16px;box-shadow:var(--shadow);
-              transition:transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease; cursor:pointer}
-    .pub-card:hover{transform:translateY(-6px) scale(1.02); box-shadow:0 14px 40px rgba(0,0,0,.45); background:rgba(255,255,255,.06)}
-    .pub-card h3{margin:0 0 8px;font-size:1.05rem}
-    .pub-card p{margin:0 0 12px;font-size:0.95rem}
+    /* Publications grid / Research cards */
+    .pub-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px; margin-top: 16px;}
+    .pub-card{background:rgba(15,23,42,.01);border:1px solid rgba(15,23,42,.05);border-radius:14px;padding:18px;box-shadow: 0 2px 8px rgba(15,23,42,.01);
+              transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;}
+    .pub-card:hover{transform:translateY(-3px); box-shadow:0 12px 24px rgba(15,23,42,.06); background:rgba(255,255,255,1); border-color: rgba(29,78,216,.15);}
+    .pub-card h3{margin:0 0 8px;font-size:1.05rem; color: var(--text); line-height: 1.4;}
+    .pub-card p{margin:0 0 12px;font-size:0.95rem; color: var(--muted);}
+    
+    /* Publication specific styling */
+    .pub-year{display:inline-block; background:rgba(29,78,216,.08); color:var(--accent); font-weight:700; padding:3px 10px; border-radius:6px; font-size:0.85rem; margin-bottom:10px;}
+
+    /* Specific layout adjustment for 3 cards so they align nicely */
+    .research-grid{display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:20px; margin-top: 16px;}
+
+    /* Framework Graphic Container */
+    .framework-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 24px auto;
+      max-width: 650px;
+      width: 100%;
+    }
+    .framework-svg {
+      width: 100%;
+      height: auto;
+    }
+    .node {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      cursor: pointer;
+    }
+    .node:hover {
+      transform: scale(1.02);
+    }
+    .node-center:hover {
+      transform: scale(1.04);
+    }
+    .node-text-title {
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      fill: #0f172a;
+    }
+    .center-text {
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      fill: #ffffff;
+    }
+
+    /* Contact Block styling */
+    .contact-list {margin: 16px 0 0; padding: 0; list-style: none;}
+    .contact-list li {margin-bottom: 14px; padding-left: 24px; position: relative;}
+    .contact-list li::before {content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: bold;}
 
     /* Footer */
-    footer{padding:28px 20px;color:var(--muted);text-align:center}
+    footer{padding:32px 20px;color:var(--muted);text-align:center; font-size: 0.9rem; border-top: 1px solid rgba(15,23,42,.06); background: var(--card);}
 
     /* Responsive */
     @media (max-width: 880px){
@@ -79,22 +124,18 @@
   </style>
 </head>
 <body>
-  <!-- Background layers -->
-  <canvas id="particles"></canvas>
   <div class="grid-bg"></div>
 
-  <!-- Header -->
   <header>
     <div class="wrap hero">
       <div>
         <h1>Farhad Pourkamali Anaraki</h1>
-        <h3>Assistant Professor, Department of Mathematical & Statistical Sciences</h3>
-        <div class="meta">Director of Mathematics, Information, and Data Science (MINDS) Lab · University of Colorado Denver</div>
-        <div class="meta">📧 <a href="mailto:farhad.pourkamali@ucdenver.edu">farhad.pourkamali@ucdenver.edu</a></div>
+        <h3 style="font-size: 1.35rem; color: var(--text);">Associate Professor</h3>
+        <h3 style="font-size: 1.35rem; font-weight: 500; margin-top: 4px; color: var(--muted);">Department of Mathematical and Statistical Sciences, University of Colorado Denver</h3>
+        <div class="meta" style="margin-top: 8px;">📧 <a href="mailto:farhad.pourkamali@ucdenver.edu">farhad.pourkamali@ucdenver.edu</a></div>
         
-        <div class="buttons" style="margin-top:12px">
+        <div class="buttons" style="margin-top:14px">
           <a class="btn" href="https://scholar.google.com/citations?user=NB2B59cAAAAJ&hl=en" target="_blank" rel="noopener">🔎 Google Scholar</a>
-          <a class="btn" href="https://github.com/farhad-pourkamali" target="_blank" rel="noopener">🧪 GitHub</a>
           <a class="btn" href="https://www.linkedin.com/in/farhad-pourkamali/" target="_blank" rel="noopener">🔗 LinkedIn</a>
           <a class="btn" href="https://www.youtube.com/c/drdatascience" target="_blank" rel="noopener">▶️ YouTube</a>
         </div>
@@ -104,76 +145,133 @@
     <nav class="wrap">
       <a class="chip" href="#bio">Biography</a>
       <a class="chip" href="#research">Research</a>
-<a class="chip" href="#publications">Publications</a>
+      <a class="chip" href="#publications">Publications</a>
       <a class="chip" href="#grants">Grants</a>
       <a class="chip" href="#teaching">Teaching</a>
-      <a class="chip" href="#lab">Lab</a>
+      <a class="chip" href="#connect">Connect</a>
     </nav>
   </header>
 
-  <!-- Main -->
   <main class="container">
     <section id="bio">
       <h2>Biography</h2>
-      <p>Farhad Pourkamali is currently a tenure-track Assistant Professor in the <a href="https://clas.ucdenver.edu/mathematical-and-statistical-sciences/">Department of Mathematical and Statistical Sciences</a> at the University of Colorado Denver (CU Denver). He earned his Ph.D. in Electrical Engineering from the University of Colorado Boulder (CU Boulder), where he subsequently completed a one-year postdoctoral fellowship in the Department of Applied Mathematics. Prior to his current role, he served as an Assistant Professor in the Computer Science Department at the University of Massachusetts Lowell (UMass Lowell) from 2018 to 2022. In 2021, he received the Visiting Faculty Research Program (VFRP) award from the Air Force Research Laboratory Information Directorate (AFRL/RI). Since the fall of 2022, he has been a part of CU Denver, where he leads the Mathematics, Information, and Data Science (MINDS) Lab. His main emphasis is on advancing machine learning techniques to reduce the necessity for human input, enhance their computational and statistical efficiency, and create accessible cyberinfrastructure resources. He is committed to addressing practical problems in various domains, including materials science and natural hazards analysis, and is actively seeking opportunities for collaboration.</p>
+      <p>Farhad Pourkamali is an Associate Professor in the <a href="https://clas.ucdenver.edu/mathematical-and-statistical-sciences/">Department of Mathematical and Statistical Sciences</a> at the University of Colorado Denver (CU Denver). Prior to his current role, he served as an Assistant Professor in the Computer Science Department at the University of Massachusetts Lowell (UMass Lowell) from 2018 to 2022. Additionally, he received the Visiting Faculty Research Program (VFRP) award from the Air Force Research Laboratory Information Directorate (AFRL/RI) in 2021. He completed his Ph.D. in Electrical Engineering at the University of Colorado Boulder (CU Boulder) in 2017. His work focuses on enhancing the performance, reliability, and computational efficiency of artificial intelligence (AI) using tools from computational mathematics, statistical inference, and scientific computing.</p>
     </section>
 
     <section id="research">
       <h2>Research Interests</h2>
-      <p>The objective of my research is to advance the foundations and computational methods for building intelligent systems that can operate with minimal human supervision while understanding and quantifying their own uncertainty. By improving computational and data efficiency, developing novel approaches for calibrating and adapting pre-trained models, and applying these methods across domains from computer vision to scientific simulations, my work aims to create AI systems that are both high-performing and trustworthy. These AI models have been deployed in domains ranging from multiscale composite material modeling and additive manufacturing to remote sensing for environmental and geospatial applications.</p>
+      <p>My research centers around scaling artificial intelligence (AI) both efficiently and reliably. While modern machine learning methods make impressive predictions, they often lack quantifiable confidence in those outcomes. Consequently, state-of-the-art methods can suffer a substantial drop in performance after their initial training due to shifts in data, such as encountering out-of-distribution scenarios or entirely new environments.</p>
 
-      <div class="pub-grid">
+      <div class="framework-container">
+        <svg class="framework-svg" viewBox="0 0 650 380" xmlns="http://www.w3.org/2000/svg">
+          <line x1="325" y1="55" x2="90" y2="310" stroke="#cbd5e1" stroke-width="2.5" stroke-dasharray="6,6" />
+          <line x1="90" y1="310" x2="560" y2="310" stroke="#cbd5e1" stroke-width="2.5" stroke-dasharray="6,6" />
+          <line x1="560" y1="310" x2="325" y2="55" stroke="#cbd5e1" stroke-width="2.5" stroke-dasharray="6,6" />
+
+          <line x1="325" y1="195" x2="325" y2="55" stroke="#94a3b8" stroke-width="2" />
+          <line x1="325" y1="195" x2="90" y2="310" stroke="#94a3b8" stroke-width="2" />
+          <line x1="325" y1="195" x2="560" y2="310" stroke="#94a3b8" stroke-width="2" />
+
+          <g class="node" style="transform-origin: 325px 55px;">
+            <circle cx="325" cy="55" r="10" fill="#1d4ed8" />
+            <rect x="245" y="10" width="160" height="30" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="drop-shadow(0 2px 4px rgba(15,23,42,0.04))" />
+            <text x="325" y="30" text-anchor="middle" class="node-text-title">Generalizable</text>
+          </g>
+
+          <g class="node" style="transform-origin: 90px 310px;">
+            <circle cx="90" cy="310" r="10" fill="#1d4ed8" />
+            <rect x="10" y="325" width="160" height="30" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="drop-shadow(0 2px 4px rgba(15,23,42,0.04))" />
+            <text x="90" y="345" text-anchor="middle" class="node-text-title">Scalable</text>
+          </g>
+
+          <g class="node" style="transform-origin: 560px 310px;">
+            <circle cx="560" cy="310" r="10" fill="#1d4ed8" />
+            <rect x="480" y="325" width="160" height="30" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="drop-shadow(0 2px 4px rgba(15,23,42,0.04))" />
+            <text x="560" y="345" text-anchor="middle" class="node-text-title">Adaptable</text>
+          </g>
+
+          <g class="node node-center" style="transform-origin: 325px 195px;">
+            <circle cx="325" cy="195" r="50" fill="#1d4ed8" filter="drop-shadow(0 4px 10px rgba(29,78,216,0.22))" />
+            <circle cx="325" cy="195" r="45" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.5" />
+            <text x="325" y="191" text-anchor="middle" class="center-text">RELIABLE &amp;</text>
+            <text x="325" y="209" text-anchor="middle" class="center-text">EFFICIENT AI</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="research-grid">
         <div class="pub-card">
-          <h3>Probabilistic Neural Networks</h3>
-          <p>These models are designed to provide direct estimates about the variability in neural network outputs. For example, in regression settings, the model produces a parameterized predictive distribution, which can be used for uncertainty quantification. This is important because it enables more informed decision-making by explicitly modeling predictive confidence.</p>
+          <h3>Uncertainty Quantification & Confidence</h3>
+          <p>To address vulnerabilities caused by data shifts and environmental changes, a major focus of my work is to better understand and quantify predictive confidence. We achieve this by generating precise predictive distributions and translating them into actionable, trusted insights.</p>
         </div>
         <div class="pub-card">
-          <h3>Model Calibration</h3>
-          <p>I work on adapting calibration methods, such as temperature scaling and conformal prediction, to pre-trained vision and language models affected by domain shifts. Well-calibrated models produce reliable uncertainty estimates, which are critical for safe and trustworthy AI in high-stakes applications.</p>
+          <h3>Computational Efficiency & Cost Reduction</h3>
+          <p>Concurrently, my lab tackles the computational and financial burden of modern AI. We work to drastically reduce the cost of training, deploying, and continuously maintaining models using structural tools from computational mathematics, such as randomized and low-rank algorithms.</p>
         </div>
         <div class="pub-card">
-          <h3>Multimodal Representation and Fusion</h3>
-          <p>In many applications, data comes from multiple modalities such as text, images, and sensor measurements. Merging these in a probabilistic framework allows for consistent uncertainty estimates across modalities, leading to more robust and coherent predictions.</p>
-        </div>
-        <div class="pub-card">
-          <h3>Model Reproducibility and Explainability</h3>
-          <p>Training neural networks is inherently stochastic, leading to variability in results. Quantifying this training-induced variability is critical for scientific rigor. In addition, explainability methods help interpret model predictions, ensuring transparency and accountability.</p>
+          <h3>Scientific & Engineering Applications</h3>
+          <p>Ultimately, our goal is to extend these powerful foundation models beyond standard natural language text, deploying adaptive AI techniques to interpret complex multimodal data and solve critical engineering and physical science problems involving remote sensing, materials science, medicine, and natural hazards.</p>
         </div>
       </div>
-</section>
-
-    
+    </section>
 
     <section id="publications">
-      <h2>Selected Publications</h2>
-      <p>The complete collection of my publications can be found on <a href="https://scholar.google.com/citations?user=NB2B59cAAAAJ&hl=en">Google Scholar</a>.</p>
+      <h2>Featured Publications</h2>
+      <p>The complete collection of my publications can be found on <a href="https://scholar.google.com/citations?user=NB2B59cAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
+      
       <div class="pub-grid">
         <div class="pub-card">
-          <h3><a href="https://www.sciencedirect.com/science/article/abs/pii/S0952197623011673" target="_blank" rel="noopener">Evaluation of Classification Models in Limited Data Scenarios with Application to Additive Manufacturing</a></h3>
-          <p>Framework for unbiased test loss estimates with fewer labels in sparse-data regimes, reducing variance via adaptive sampling distribution.</p>
-          <div class="buttons"><a class="btn" href="https://www.sciencedirect.com/science/article/abs/pii/S0952197623011673" target="_blank" rel="noopener">Read Article</a></div>
+          <div class="pub-year">2026</div>
+          <h3>Probabilistic Neural Networks (PNNs) with t-distributed outputs: adaptive prediction intervals beyond Gaussian assumptions</h3>
+          <p><strong>Pourkamali-Anaraki, F.</strong><br><em>Neural Computing and Applications</em>, 38(8), 259.</p>
         </div>
+        
         <div class="pub-card">
-          <h3><a href="https://arxiv.org/abs/2401.02008" target="_blank" rel="noopener">Two-Stage Surrogate Modeling for Data-Driven Design Optimization with Application to Composite Microstructure Generation</a></h3>
-          <p>Two-stage inverse design framework combining candidate narrowing with conformal inference filtering, validated on benchmarks and micromechanics case study.</p>
-          <div class="buttons"><a class="btn" href="https://arxiv.org/abs/2401.02008" target="_blank" rel="noopener">Read Preprint</a></div>
+          <div class="pub-year">2025</div>
+          <h3>Predicting printability of highly filled polymer suspensions via vat photopolymerization: a classification-based machine learning approach</h3>
+          <p>Nasrin, T., <strong>Pourkamali-Anaraki, F.</strong>, Hansen, C., Jensen, R., & Peterson, A.<br><em>Rapid Prototyping Journal</em>, 31(10), 2182-2194.</p>
         </div>
+        
         <div class="pub-card">
-          <h3><a href="#" target="_blank" rel="noopener">Add another featured paper</a></h3>
-          <p>Use this slot to feature a recent publication. Link to DOI/arXiv or your site.</p>
-          <div class="buttons"><a class="btn" href="https://scholar.google.com/citations?user=NB2B59cAAAAJ&hl=en" target="_blank" rel="noopener">More on Scholar</a></div>
+          <div class="pub-year">2024</div>
+          <h3>Probabilistic Neural Networks (PNNs) for modeling aleatoric uncertainty in scientific machine learning</h3>
+          <p><strong>Pourkamali-Anaraki, F.</strong>, Husseini, J. F., & Stapleton, S. E.<br><em>IEEE Access</em>, 12, 178816-178831.</p>
         </div>
+        
         <div class="pub-card">
-          <h3><a href="#" target="_blank" rel="noopener">Add a fourth featured paper</a></h3>
-          <p>Brief 1–2 sentence highlight of contribution and results.</p>
-          <div class="buttons"><a class="btn" href="https://scholar.google.com/citations?user=NB2B59cAAAAJ&hl=en" target="_blank" rel="noopener">All Publications</a></div>
+          <div class="pub-year">2024</div>
+          <h3>Application of machine learning in polymer additive manufacturing: A review</h3>
+          <p>Nasrin, T., <strong>Pourkamali‐Anaraki, F.</strong>, & Peterson, A. M.<br><em>Journal of Polymer Science</em>, 62(12), 2639-2669.</p>
+        </div>
+        
+        <div class="pub-card">
+          <div class="pub-year">2023</div>
+          <h3>Evaluation of classification models in limited data scenarios with application to additive manufacturing</h3>
+          <p><strong>Pourkamali-Anaraki, F.</strong>, Nasrin, T., Jensen, R. E., Peterson, A. M., & Hansen, C. J.<br><em>Engineering Applications of Artificial Intelligence</em>, 126, 106983.</p>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-year">2023</div>
+          <h3>Active learning for prediction of tensile properties for material extrusion additive manufacturing</h3>
+          <p>Nasrin, T., Pourali, M., <strong>Pourkamali-Anaraki, F.</strong>, & Peterson, A. M.<br><em>Scientific Reports</em>, 13(1), 11460.</p>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-year">2021</div>
+          <h3>Adaptive data compression for classification problems</h3>
+          <p><strong>Pourkamali-Anaraki, F.</strong>, & Bennette, W. D.<br><em>IEEE Access</em>, 9, 157654-157669.</p>
+        </div>
+        
+        <div class="pub-card">
+          <div class="pub-year">2020</div>
+          <h3>Scalable spectral clustering with Nyström approximation: Practical and theoretical aspects</h3>
+          <p><strong>Pourkamali-Anaraki, F.</strong><br><em>IEEE Open Journal of Signal Processing</em>, 1, 242–256.</p>
         </div>
       </div>
     </section>
 
     <section id="grants">
       <h2>Grants</h2>
-
       <div class="pub-grid">
         <div class="pub-card">
           <h3>High-Throughput Design and Analysis of Novel Ceramics</h3>
@@ -196,119 +294,55 @@
 
     <section id="teaching">
       <h2>Teaching</h2>
-
+      <p>Due to my interdisciplinary background, I teach a variety of courses at the intersection of computational mathematics, statistical inference, machine learning, and AI.</p>
+      
       <div class="pub-grid">
-<div class="pub-card">
+        <div class="pub-card">
           <h3>MATH 6388: Statistical and Machine Learning</h3>
-          <p>Offered: Fall 2022, Fall 2023, Fall 2024</p>
-          <div class="buttons">
+          <div class="buttons" style="margin-top:12px">
             <a class="btn" href="https://github.com/farhad-pourkamali/MATH6388Online" target="_blank" rel="noopener">Course Repo</a>
           </div>
         </div>
         <div class="pub-card">
-          <h3>MATH 4/5388: Machine Learning Methods</h3>
-          <p>Offered: Spring 2023 and Spring 2025</p>
-          <div class="buttons">
+          <h3>MATH 5388: Machine Learning Methods (Graduate)</h3>
+          <div class="buttons" style="margin-top:12px">
+            <a class="btn" href="https://www.pourkamali.com/MLMethods/intro.html" target="_blank" rel="noopener">Course Repo</a>
+          </div>
+        </div>
+        <div class="pub-card">
+          <h3>MATH 4388: Machine Learning Methods (Undergraduate)</h3>
+          <div class="buttons" style="margin-top:12px">
             <a class="btn" href="https://www.pourkamali.com/MLMethods/intro.html" target="_blank" rel="noopener">Course Repo</a>
           </div>
         </div>
         <div class="pub-card">
           <h3>MATH 1376: Programming for Data Science</h3>
-          <p>Offered: Spring 2024</p>
-          <div class="buttons">
+          <div class="buttons" style="margin-top:12px">
             <a class="btn" href="https://github.com/farhad-pourkamali/ProgrammingForDataScience" target="_blank" rel="noopener">Course Repo</a>
           </div>
         </div>
         <div class="pub-card">
           <h3>MATH 5718: Applied Linear Algebra</h3>
-          <p>Offered: Fall 2025</p>
         </div>
         <div class="pub-card">
           <h3>MATH 3382: Statistical Theory</h3>
-          <p>Offered: Spring 2025</p>
-        </div>
-        <div class="pub-card">
-          <h3>Next Course</h3>
-          <p>Coming soon...</p>
-        </div>
-    
-</div>
-    </section>
-
-    <section id="lab">
-      <h2>Lab Members</h2>
-
-      <div class="pub-grid">
-        <div class="pub-card">
-          <h3>Matthew Knodell</h3>
-          <p>Applied Math Ph.D. Student (2024–present)</p>
-        </div>
-        <div class="pub-card">
-          <h3>Courtney Franzen</h3>
-          <p>Applied Math Ph.D. Student (2024–present)</p>
-        </div>
-        <div class="pub-card">
-          <h3>Rachel Drummond</h3>
-          <p>Applied Math Ph.D. Student (2023–present)</p>
-        </div>
-        <div class="pub-card">
-          <h3>Colin Furey</h3>
-          <p>Applied Math Ph.D. Student (2023–present)</p>
         </div>
       </div>
+    </section>
+
+    <section id="connect">
+      <h2>Collaboration & Contact</h2>
+      <p>I welcome opportunities to collaborate across disciplines, support driven students, and advise partners in industry. If you are interested in working together, please see the guidelines below:</p>
+      
+      <ul class="contact-list">
+        <li><strong>Prospective Students & Research Collaborators:</strong> Our group is always looking for motivated students and external research collaborators with a solid background in linear algebra, statistics, or machine learning. If you are interested in working with me, please email me your CV, transcripts, or past research work along with a brief summary of how your background aligns with our research pillars.</li>
+        <li><strong>Academic & Industry Research:</strong> I am highly open to joint grants and collaborative research projects, particularly in translating reliable AI, computational mathematics, or uncertainty quantification models into remote sensing, physical science, engineering, or medicine.</li>
+        <li><strong>Consulting & Advisory Inquiries:</strong> I am available for algorithm auditing, technical consulting, and industry expert advisory roles focusing on making AI systems more efficient, reliable, and highly generalizable.</li>
+      </ul>
+      <p style="margin-top: 16px;">The quickest way to reach out is via email at <a href="mailto:farhad.pourkamali@ucdenver.edu">farhad.pourkamali@ucdenver.edu</a>.</p>
     </section>
   </main>
 
   <footer id="contact">© <script>document.write(new Date().getFullYear())</script> Farhad Pourkamali · <a href="mailto:farhad.pourkamali@ucdenver.edu">farhad.pourkamali@ucdenver.edu</a></footer>
-
-  <!-- Particles script (inline, no external files needed) -->
-  <script>
-    (function(){
-      const canvas = document.getElementById('particles');
-      if(!canvas) return;
-      const ctx = canvas.getContext('2d');
-      let w, h, particles = [], dpr = Math.min(window.devicePixelRatio || 1, 2);
-      function resize(){
-        w = canvas.width = Math.floor(innerWidth * dpr);
-        h = canvas.height = Math.floor(innerHeight * dpr);
-        canvas.style.width = innerWidth + 'px';
-        canvas.style.height = innerHeight + 'px';
-        const targetCount = Math.min(240, Math.floor(innerWidth * innerHeight * 0.00006));
-        if(particles.length > targetCount){ particles.length = targetCount; }
-        while(particles.length < targetCount){ particles.push(makeParticle()); }
-      }
-      function makeParticle(){
-        return { x: Math.random()*w, y: Math.random()*h, vx: (Math.random()-0.5)*0.25*dpr, vy: (Math.random()-0.5)*0.25*dpr, r: (Math.random()*1.5 + 0.6) * dpr };
-      }
-      function step(){
-        ctx.clearRect(0,0,w,h);
-        // draw links
-        for(let i=0;i<particles.length;i++){
-          const p = particles[i];
-          for(let j=i+1;j<particles.length;j++){
-            const q = particles[j];
-            const dx = p.x - q.x, dy = p.y - q.y;
-            const dist2 = dx*dx + dy*dy;
-            const maxDist = 140*dpr;
-            if(dist2 < maxDist*maxDist){
-              const alpha = 0.08 * (1 - Math.sqrt(dist2)/maxDist);
-              ctx.strokeStyle = `rgba(102,204,255, ${alpha})`;
-              ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
-            }
-          }
-        }
-        // draw particles
-        for(const p of particles){
-          p.x += p.vx; p.y += p.vy;
-          if(p.x < 0 || p.x > w) p.vx *= -1;
-          if(p.y < 0 || p.y > h) p.vy *= -1;
-          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-          ctx.fillStyle = 'rgba(255, 255, 255, 0.65)'; ctx.fill();
-        }
-        requestAnimationFrame(step);
-      }
-      addEventListener('resize', resize); resize(); step();
-    })();
-  </script>
 </body>
 </html>
